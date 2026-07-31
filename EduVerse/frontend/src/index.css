@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Playwrite+NZ+Basic:wght@100..400&family=Playwrite+US+Trad+Guides&display=swap');
+
+:root {
+
+  --primary: #2563ff;
+  --primary-dark: #1d4ed8;
+
+  --orange: #ff7a00;
+  --purple: #7c3aed;
+  --yellow: #facc15;
+  --green: #10b981;
+
+  --bg: #f7f9fc;
+  --white: #ffffff;
+  --text: #0f172a;
+  --text-light: #64748b;
+  --border: #e5e7eb;
+
+  --shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08);
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+
+  --container: 1200px;
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg);
+  font-family: "Inter", sans-serif;
+}

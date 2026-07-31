@@ -1,0 +1,46 @@
+const express = require("express");
+const dotenv = require("dotenv");
+dotenv.config();
+const cors = require("cors");
+const connectToDB = require("./config/db");
+const errorMiddleware = require("./middlewares/errorMiddleware");
+const cookieParser = require("cookie-parser");
+const authRoutes = require("./routes/authRoutes");
+const courseRoutes = require("./routes/courseRoutes");
+const moduleRoutes = require("./routes/moduleRoutes");
+const chapterRoutes = require("./routes/chapterRoutes");
+const lectureRoutes = require("./routes/lectureRoutes");
+const quizRoutes = require("./routes/quizRoutes");
+const enrollmentRoutes = require("./routes/enrollmentRoutes");
+const progressRoutes = require("./routes/progressRoutes");
+const path = require("path");
+
+const app = express();
+connectToDB();
+app.use(express.json()); // To parse json from frontend
+app.use(express.urlencoded({extended:true}));
+
+app.use(cors({
+    origin: process.env.MODE == "production" ? process.env.FRONTEND_URL : true,
+    credentials: true
+})); // Middleware to accept request from other server
+app.use(cookieParser()); // Middleware to parse client cokkies
+app.use("/uploads",express.static(path.join(__dirname,"../uploads"))); // To server files uploaded
+
+app.get("/health", (req, res) => {
+    res.send("<h1>Server Is Running Perfectly</h1>");
+})
+app.use("/api/v1/auth", authRoutes); // Using routes defined in authRoutes file
+app.use("/api/v1/course", courseRoutes);
+app.use("/api/v1/modules",moduleRoutes);
+app.use("/api/v1/chapters",chapterRoutes);
+app.use("/api/v1/lectures",lectureRoutes);
+app.use("/api/v1/quizes",quizRoutes);
+app.use("/api/v1/enrollement",enrollmentRoutes);
+app.use("/api/v1/progress",progressRoutes);
+
+app.use(errorMiddleware); // Using errorMiddleware globally
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Server Is Running At:\nhttp://localhost:${PORT}/health`);
+})

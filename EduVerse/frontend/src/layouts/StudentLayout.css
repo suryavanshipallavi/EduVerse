@@ -1,0 +1,70 @@
+/* ==========================
+   LAYOUT
+========================== */
+
+.student-layout {
+    display: flex;
+
+    min-height: 100vh;
+
+    background: #f8fafc;
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.student-layout-content {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow-x: hidden;
+}
+
+/* ==========================
+   LOADER
+========================== */
+
+.student-layout-loader {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #4f46e5;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width:1024px) {
+
+    .student-layout-content {
+        width: 100%;
+    }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px) {
+
+    .student-layout {
+        display: block;
+    }
+
+    .student-layout-content {
+        width: 100%;
+
+        padding-top: 70px;
+    }
+
+}

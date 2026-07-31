@@ -1,0 +1,74 @@
+/* ==========================
+   TEACHER LAYOUT
+========================== */
+
+.teacher-layout {
+    display: flex;
+
+    min-height: 100vh;
+
+    background: #f8fafc;
+}
+
+/* ==========================
+   CONTENT
+========================== */
+
+.teacher-layout-content {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow-x: hidden;
+
+    width: 100%;
+}
+
+/* ==========================
+   LOADER
+========================== */
+
+.teacher-layout-loader {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: #4f46e5;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width:1024px) {
+
+    .teacher-layout-content {
+        width: 100%;
+    }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px) {
+
+    .teacher-layout {
+        display: block;
+    }
+
+    .teacher-layout-content {
+        width: 100%;
+
+        padding-top: 75px;
+
+        min-height: 100vh;
+    }
+
+}
